@@ -2,14 +2,16 @@ from __future__ import absolute_import, print_function
 
 from django.conf import settings
 
+import os
+env = os.environ.get
 
 AUTHORIZE_URL = 'https://accounts.google.com/o/oauth2/auth'
 
 ACCESS_TOKEN_URL = 'https://www.googleapis.com/oauth2/v4/token'
 
-CLIENT_ID = getattr(settings, 'GOOGLE_CLIENT_ID', None)
+CLIENT_ID = env('GOOGLE_CLIENT_ID') or getattr(settings, 'GOOGLE_CLIENT_ID', None)
 
-CLIENT_SECRET = getattr(settings, 'GOOGLE_CLIENT_SECRET', None)
+CLIENT_SECRET = env('GOOGLE_CLIENT_SECRET') or getattr(settings, 'GOOGLE_CLIENT_SECRET', None)
 
 ERR_INVALID_DOMAIN = 'The domain for your Google account (%s) is not allowed to authenticate with this provider.'
 

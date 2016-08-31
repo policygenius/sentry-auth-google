@@ -19,7 +19,8 @@ In the **Authorized redirect URIs** add the SSO endpoint for your installation::
 
     https://sentry.example.com/auth/sso/
 
-Finally, obtain the API keys and plug them into your ``sentry.conf.py``:
+Finally, obtain the API keys and configure the ``GOOGLE_CLIENT_ID`` and ``GOOGLE_CLIENT_SECRET`` as environment variables.
+Alternatively, you can plug them into your ``sentry.conf.py``:
 
 .. code-block:: python
 
